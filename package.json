@@ -2,7 +2,7 @@
     "name": "blockalign",
     "displayName": "BlockAlign",
     "description": "Align blocks of code",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "Sander",
     "engines": {
         "vscode": "^1.5.0"
@@ -15,10 +15,12 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.blockalign",
-            "title": "Aligns current block"
-        }]
+        "commands": [
+            {
+                "command": "extension.blockalign",
+                "title": "Aligns current block"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
