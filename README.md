@@ -5,22 +5,20 @@ Blockalign will align blocks of code automatically.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Align blocks of code. No need to select the block, it will auto-detect possible alignments. 
 
 <!--\!\[feature X\]\(images/feature-x.png\)-->
+## Suggested keymap
 
+[
+   { "key": "ctrl+\\",           "command": "extension.blockalign",
+                                 "when": "editorTextFocus" },
+]
 
 ## Extension Settings
 
-## Known Issues
-
-## Release Notes
-
-### 1.0.0
-
 ### For more information
 
-<!--* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)-->
+https://github.com/crewone/vscode-blockalign
 
 **Enjoy!**

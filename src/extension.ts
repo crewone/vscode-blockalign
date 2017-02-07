@@ -20,8 +20,6 @@ export function activate(context: vscode.ExtensionContext)
         align.align();
     });
 
-    
-
     context.subscriptions.push(disposable);
     context.subscriptions.push(align);
     
@@ -208,6 +206,8 @@ class BlockAlign
     {
         const separators = [ "===", "!==", "!=", "<>", "-=", "+=", "~=", "==", "=>", ":", "=", ">", "<" ];
         let tempAlignChar = null;
+        let differentPositions : boolean = true;
+        let lastPosition : number;
 
         for( let entry of separators )
         {
@@ -249,9 +249,26 @@ class BlockAlign
                 }
             }
             
-            if( blockEnd - blockStart > 0 )
+            lastPosition = -1;
+            differentPositions = false;
+            for( let i = blockStart; i <= blockEnd; i++ )
             {
+                let line : vscode.TextLine = this._editor.document.lineAt( i );
+                if( lastPosition == -1 )
+                {
+                    lastPosition = this.indexOf( entry, line.text );    
+                }
+                else
+                {
+                    let currentPosition = this.indexOf( entry, line.text );
+                    console.log( tempAlignChar, lastPosition, currentPosition );
+                    differentPositions = ( currentPosition != lastPosition );
+                    if( differentPositions ) break;
+                }
+            }
 
+            if( blockEnd - blockStart > 0 && differentPositions )
+            {
                 maxBlockSize = blockEnd - blockStart;
                 tempAlignChar = entry;
                 break;
