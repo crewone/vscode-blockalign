@@ -2,7 +2,7 @@
     "name": "blockalign",
     "displayName": "BlockAlign",
     "description": "Align blocks of code",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "Sander",
     "engines": {
         "vscode": "^1.5.0"
