@@ -191,8 +191,8 @@ class BlockAlign
 
     private determineSeparator()
     {
-        const separators = [ "===", "!==", "!=", "<>", "-=", "+=", "~=", "==", "=>", "*=", "/=", "?=", "|=", "%=", ".=",, ":", "=", ">", "<" ];
-        let tempAlignChar = null;
+        const separators                 = [  "===", "!==", "!=", "<>", "-=", "+=", "~=", "==", "=>", "*=", "/=", "?=", "|=", "%=", ".=", ":", "=", ">", "<" ];
+        let tempAlignChar                = null;
         let differentPositions : boolean = true;
         let lastPosition : number;
 
@@ -201,6 +201,10 @@ class BlockAlign
             let blockStart = this._cursorPos._line;
             let blockSize : number = 0;
             let maxBlockSize : number= 0;
+
+            console.log( entry );
+
+            if( entry === undefined ) continue;
 
             // Kunnen deze wel overslaan.. 
             if( this.indexOf( entry, this._editor.document.lineAt( this._cursorPos._line ).text ) == -1 )
@@ -221,8 +225,10 @@ class BlockAlign
                 }
             }
 
+            console.log( "Blockstart", blockStart );
+
             let blockEnd = this._cursorPos._line;
-            while( blockEnd <= this._editor.document.lineCount )
+            while( blockEnd < this._editor.document.lineCount-1 )
             {
                 let line : vscode.TextLine = this._editor.document.lineAt( blockEnd + 1 );
                 if( line.isEmptyOrWhitespace == false && this.indexOf( entry, line.text ) > 0 )
@@ -288,7 +294,7 @@ class BlockAlign
         }
 
         this._blockEnd = this._cursorPos._line;
-        while( this._blockEnd <= this._editor.document.lineCount )
+        while( this._blockEnd < this._editor.document.lineCount-1 )
         {
             let line : vscode.TextLine = this._editor.document.lineAt( this._blockEnd + 1 );
             if( line.isEmptyOrWhitespace == false && this.indexOf( this._alignChar, line.text ) > 0 )

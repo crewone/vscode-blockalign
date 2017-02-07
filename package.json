@@ -11,7 +11,7 @@
     "categories": [
         "Other"
     ],
-    "icon": "icon/icon.png",
+    "icon": "media/icon.png",
     "activationEvents": [
         "onCommand:extension.blockalign"
     ],
