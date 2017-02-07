@@ -191,7 +191,7 @@ class BlockAlign
 
     private determineSeparator()
     {
-        const separators = [ "===", "!==", "!=", "<>", "-=", "+=", "~=", "==", "=>", ":", "=", ">", "<" ];
+        const separators = [ "===", "!==", "!=", "<>", "-=", "+=", "~=", "==", "=>", "*=", "/=", "?=", "|=", "%=", ".=",, ":", "=", ">", "<" ];
         let tempAlignChar = null;
         let differentPositions : boolean = true;
         let lastPosition : number;
