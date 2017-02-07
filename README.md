@@ -15,10 +15,6 @@ Align blocks of code. No need to select the block, it will auto-detect possible 
                                  "when": "editorTextFocus" },
 ]
 
-## Extension Settings
-
 ### For more information
 
 https://github.com/crewone/vscode-blockalign
-
-**Enjoy!**
