@@ -1,25 +1,36 @@
 {
     "name": "blockalign",
     "displayName": "BlockAlign",
-    "description": "Align blocks of code",
-    "version": "0.3.0",
-    "publisher": "Sander",
+    "description": "Align blocks of code like Vertical Alignment for Sublime Text 3",
+    "version": "0.4.0",
+    "publisher": "SanderPilon",
     "engines": {
         "vscode": "^1.5.0"
     },
     "categories": [
         "Other"
     ],
+    "icon": "icon/icon.png",
     "activationEvents": [
         "onCommand:extension.blockalign"
     ],
     "main": "./out/src/extension",
-    "contributes": {
+    "contributes": 
+    {
         "commands": [
             {
                 "command": "extension.blockalign",
                 "title": "Aligns current block"
             }
+        ],
+
+        "keybindings": [
+            {
+            "command": "extension.blockalign",
+            "key": "ctrl+\\",
+            "mac": "ctrl+\\",
+            "when": "editorTextFocus"
+        }
         ]
     },
     "scripts": {
@@ -34,5 +45,9 @@
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
-    }
+    },
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/crewone/vscode-blockalign"
+	}
 }

@@ -1,10 +1,7 @@
-# blockalign README
+# Blockalign 
 
-Blockalign will align blocks of code automatically.
-
-## Features
-
-Align blocks of code. No need to select the block, it will auto-detect possible alignments. 
+Align blocks of code similar to Vertical Align plugin for Sublime Text 3.
+No need to select the block, it will auto-detect possible alignments. 
 
 ## Suggested keymap
 
