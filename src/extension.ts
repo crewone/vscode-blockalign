@@ -7,10 +7,6 @@ import * as vscode from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) 
 {
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "blockalign" is now active!');
-
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
@@ -45,8 +41,6 @@ class BlockAlign
     {
         this._editor = vscode.window.activeTextEditor;
         this._tabSize = this._editor.options.tabSize;
-
-        console.log( "-------------------" );
 
         if( this._editor.selection.isEmpty ) 
         {
@@ -98,8 +92,6 @@ class BlockAlign
             }
             
             vscode.workspace.applyEdit(editor);
-            // vscode.window.activeTextEditor.selection = new vscode.Selection( this._blockStart, 0, this._blockEnd+1, 0 );
-            // console.log( this._blockStart, this._editor.document.lineAt( this._blockStart), this._blockEnd, this._editor.document.lineAt(this._blockEnd) );
         }
     }
 
@@ -170,8 +162,6 @@ class BlockAlign
         var rv : string = line;
         var pos : number = this.indexOf(this._alignChar, line );
 
-        console.log( "align", line, pos, this._minPos );
-
         var rpt = " ";
         if( this._minPos - pos  > 0 )
         {
@@ -187,8 +177,6 @@ class BlockAlign
     {
         var rv : string = line;
         var pos : number = this.indexOf(this._alignChar, line );
-
-        console.log( "align", line, pos, this._minPos );
 
         var rpt = "";
         if( this._minPos - pos  > 0 )
@@ -217,7 +205,6 @@ class BlockAlign
             // Kunnen deze wel overslaan.. 
             if( this.indexOf( entry, this._editor.document.lineAt( this._cursorPos._line ).text ) == -1 )
             {
-                console.log( "Skip", entry );
                 continue;
             }
 
@@ -260,7 +247,6 @@ class BlockAlign
                 else
                 {
                     let currentPosition = this.indexOf( entry, line.text );
-                    console.log( tempAlignChar, lastPosition, currentPosition );
                     differentPositions = ( currentPosition != lastPosition );
                     if( differentPositions ) break;
                 }
